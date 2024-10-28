@@ -1,0 +1,10 @@
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+        if (n <= 0) {
+            return false;
+        }
+
+        double logBase2 = Math.log(n) / Math.log(2);
+        return Math.abs(logBase2 - Math.round(logBase2)) < Math.pow(10,-10);
+    }
+}
