@@ -7,10 +7,6 @@ class Solution {
         return Character.isLetter(ch) && !isVowel(ch);
     }
 
-    public static boolean isDigit(char ch) {
-        return Character.isDigit(ch);
-    }
-
     public boolean isValid(String word) {
         int len = word.length();
         int vowel = 0, consonant = 0;
