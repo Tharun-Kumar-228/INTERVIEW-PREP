@@ -1,0 +1,14 @@
+int distanceTraveled(int mT, int aT) {
+    int d = 0;
+
+    while (mT > 0) {
+        mT--;
+        d += 10;
+        if (d % 50 == 0 && aT > 0) {
+            mT++;
+            aT--;
+        }
+    }
+
+    return d;
+}
