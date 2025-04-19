@@ -1,0 +1,9 @@
+int differenceOfSum(int* arr, int size) {
+    int sum=0,dsum=0;
+    for (int i=0;i<size;i++){
+        sum +=arr[i];
+        for (int t = arr[i]; t > 0; t /= 10)
+        dsum += t % 10;
+         }
+    return((sum-dsum)<0)?dsum-sum:sum-dsum;
+}
