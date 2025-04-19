@@ -1,0 +1,11 @@
+int averageValue(int* arr, int Size) {
+    int count=0,sums=0;
+    for (int i=0;i<Size;i++){
+        if((arr[i]%2 == 0) && (arr[i]%3 ==0)){
+            sums +=arr[i];
+            count++;
+        }
+    }
+    return (sums)?sums/count:sums;
+
+}
