@@ -1,0 +1,10 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+double* convertTemperature(double celsius, int* returnSize) {
+    double * rs = (double * )calloc(sizeof(double),2);
+    rs[0] = celsius + 273.15;                         
+    rs[1] = celsius * 1.80 + 32.00;           
+    *returnSize =2;
+    return rs;
+}
