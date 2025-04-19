@@ -1,0 +1,13 @@
+int minCostToMoveChips(int* arr, int Size) {
+    int oc=0,ec=0;
+    for(int i=0;i<Size;i++){
+
+        if(arr[i]%2== 0 ){
+            ec++;
+        }else{
+            oc++;
+        }
+        
+    }
+    return(oc<ec)?oc:ec;
+}
