@@ -1,0 +1,7 @@
+int missingNumber(int* arr, int size) {
+
+    for (int i = 1; i < size; i++) {
+        arr[0] += arr[i];
+    }
+    return (size * (size + 1)) / 2 - arr[0];   
+}
