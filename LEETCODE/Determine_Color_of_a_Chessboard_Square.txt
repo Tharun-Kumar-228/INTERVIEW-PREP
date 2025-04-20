@@ -1,0 +1,5 @@
+bool squareIsWhite(char* c) {
+    if(((int)c[0]%2) == ((int)c[1]%2))
+        return false;
+    return true;
+}
