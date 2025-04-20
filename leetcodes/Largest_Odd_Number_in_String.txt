@@ -1,0 +1,23 @@
+#include <stdlib.h>
+#include <string.h>
+
+char* largestOddNumber(char* num) {
+    int n = strlen(num);
+    int lastOddIndex = -1;
+    for (int i = n - 1; i >= 0; i--) {
+        if ((num[i] - '0') % 2 == 1) {
+            lastOddIndex = i;
+            break;
+        }
+    }
+    if (lastOddIndex == -1) {
+        char* empty = (char*)malloc(1);
+        empty[0] = '\0';
+        return empty;
+    }
+    char* result = (char*)malloc(lastOddIndex + 2); 
+    strncpy(result, num, lastOddIndex + 1);
+    result[lastOddIndex + 1] = '\0';
+
+    return result;
+}
