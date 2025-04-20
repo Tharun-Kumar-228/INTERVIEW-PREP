@@ -1,0 +1,13 @@
+int findComplement(int num) {
+    int ans=0;
+    for(int bit=30;bit>=0;bit--){
+        if(num & (1<<bit)){
+            for(int i=0;i<bit;i++){
+                if(num & (1<<i)) continue;
+                else ans+=pow(2,i);
+            }
+            break;
+        }
+    }
+    return ans;
+}
