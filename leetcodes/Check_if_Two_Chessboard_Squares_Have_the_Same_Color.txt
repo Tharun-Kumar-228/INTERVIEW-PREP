@@ -1,0 +1,19 @@
+
+bool checkTwoChessboards(char* c1, char* c2) {
+    int col1 = (c1[0] - 'a' + c1[1] - '1') % 2;
+    int col2 = (c2[0] - 'a' + c2[1] - '1') % 2;
+    return col1 == col2;
+}
+
+
+// bool checkTwoChessboards(char* c1, char* c2) {
+//     int col1=1;
+//     if(((int)c1[0]%2) == ((int)c1[1]%2)){
+//         col1=0;
+//     }
+//     int col2=1;
+//     if(((int)c2[0]%2) == ((int)c2[1]%2)){
+//         col2=0;
+//     }
+//     return col1==col2;
+// }
