@@ -1,0 +1,19 @@
+#include <stdlib.h>
+
+char repeatedCharacter(char* s) {
+    int *arr = (int *)calloc(26, sizeof(int));
+    int i;
+
+    for (i = 0; s[i] != '\0'; i++) {
+        int index = s[i] - 'a';  
+        if (arr[index] == 0) {
+            arr[index] = 1;
+        } else {
+            free(arr);
+            return s[i];  
+        }
+    }
+
+    free(arr);
+    return '\0'; 
+}
