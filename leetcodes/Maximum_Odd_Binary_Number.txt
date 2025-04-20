@@ -1,0 +1,31 @@
+char* maximumOddBinaryNumber(char* s) {
+    
+    int ones = 0, zeros = 0;
+
+    for (int i = 0; s[i] != '\0'; i++) {
+        if (s[i] == '1') ones++;
+        else zeros++;
+    }
+
+   
+    int len = strlen(s);
+    char* result = (char*)malloc(len + 1); 
+
+    int i = 0;
+    
+    
+    for (; i < ones - 1; i++) {
+        result[i] = '1';
+    }
+
+    
+    for (int j = 0; j < zeros; j++, i++) {
+        result[i] = '0';
+    }
+
+   
+    result[i++] = '1';
+    result[i] = '\0';
+
+    return result;
+}
