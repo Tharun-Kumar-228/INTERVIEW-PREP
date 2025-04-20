@@ -1,0 +1,13 @@
+char* winningPlayer(int x, int y) {
+    // int count=0;
+    // while(x>=1 && y>=4){
+    //     x--;
+    //     y-=4;
+    //     count++;
+    // }
+
+    int count = (x < y / 4) ? x : y / 4;
+    return (count % 2 == 1) ? "Alice" : "Bob";
+
+    // return (count%2 == 1)?"Alice":"Bob";
+}
