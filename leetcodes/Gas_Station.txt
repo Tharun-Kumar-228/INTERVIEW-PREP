@@ -1,0 +1,53 @@
+// int canCompleteCircuit(int* gas, int gasSize, int* cost, int costSize) {
+//     int tp = 0, ga = 0;
+//     int *start = (int *)malloc(gasSize * sizeof(int));
+//     int n = 0;
+//     for (int i = 0; i < gasSize; i++) {
+//         tp += cost[i];
+//         ga += gas[i];
+//         if (gas[i] > cost[i]) {  
+//             start[n++] = i;
+//         }
+//     }
+//     if (ga < tp) {
+//         free(start);
+//         return -1;
+//     }
+//     for (int i = 0; i < n; i++) {
+//         int currGas = 0;
+//         int completed = 1;
+//         int s = start[i];
+//         for (int j = 0; j < gasSize; j++) {
+//             int idx = (s + j) % gasSize;
+//             currGas += gas[idx] - cost[idx];
+//             if (currGas < 0) {
+//                 completed = 0;
+//                 break;
+//             }
+//         }
+//         if (completed) {
+//             free(start);
+//             return s;
+//         }
+//     }
+//     free(start);
+//     return 0;
+// }
+int canCompleteCircuit(int* gas, int gasSize, int* cost, int costSize) {
+    int totalGas=0,totalCost=0;
+    for(int i=0;i<gasSize;i++){
+        totalGas+=gas[i];
+        totalCost+=cost[i];
+
+    }
+    if(totalGas<totalCost) return -1;
+    int ans =0,gasGain=0;
+    for(int i=0;i<gasSize;i++){
+        gasGain += gas[i] - cost[i];
+        if(gasGain < 0){
+            ans = i+1;
+            gasGain = 0;
+        }
+    }
+    return ans;
+}
