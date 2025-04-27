@@ -1,0 +1,26 @@
+#include <stdbool.h>
+
+int minOperations(int* nums, int numsSize, int k) {
+    bool collected[k+1];  // Array to track collected numbers
+    for (int i = 0; i <= k; i++) {
+        collected[i] = false;
+    }
+    
+    int count = 0;
+    int collectedCount = 0;
+    
+    for (int i = numsSize - 1; i >= 0; i--) {  // Go from back
+        count++;
+        
+        if (nums[i] <= k && !collected[nums[i]]) {
+            collected[nums[i]] = true;
+            collectedCount++;
+        }
+        
+        if (collectedCount == k) {  // If collected all from 1 to k
+            break;
+        }
+    }
+    
+    return count;
+}
