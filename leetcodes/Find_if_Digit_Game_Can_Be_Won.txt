@@ -1,0 +1,11 @@
+bool canAliceWin(int* nums, int n) {
+    int osum=0,tsum=0;
+    for(int i=0;i<n;i++){
+        if(nums[i] <10){
+            osum+=nums[i];
+        }else{
+            tsum+=nums[i];
+        }
+    }
+    return !(tsum==osum);
+}
