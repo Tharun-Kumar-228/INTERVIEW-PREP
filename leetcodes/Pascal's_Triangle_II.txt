@@ -1,0 +1,35 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+ #include<stdio.h>
+ #include<stdlib.h>
+ #include <math.h>
+int* getRow(int rowIndex, int* returnSize) {
+    *returnSize = rowIndex + 1;
+
+   
+    int* prev = (int*)malloc(sizeof(int) * (*returnSize));
+    if (!prev) return NULL;
+    prev[0] = 1;
+
+    for (int i = 1; i <= rowIndex; i++) {
+       
+        int* curr = (int*)malloc(sizeof(int) * (i + 1));
+        if (!curr) {
+            free(prev);
+            return NULL;
+        }
+
+        for (int j = 0; j <= i; j++) {
+            if (j == 0 || j == i) {
+                curr[j] = 1;  
+            } else {
+                curr[j] = prev[j - 1] + prev[j];
+            }
+        }
+        free(prev);
+        prev = curr;
+    }
+
+    return prev;
+}
