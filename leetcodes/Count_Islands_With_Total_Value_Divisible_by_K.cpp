@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int countIslands(vector<vector<int>>& grid, long long k) {
+        int n = grid.size();
+        int m = grid[0].size();
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (grid[i][j] > 0) {
+                    long long weight = dfs(grid, i, j);
+                    if (weight% k==0)
+                        count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    long long dfs(vector<vector<int>>& grid, int i, int j) {
+        int n = grid.size();
+        int m = grid[0].size();
+
+        if (i < 0 || j < 0 || i >= n || j >= m || grid[i][j] == 0)
+            return 0LL;
+
+        long long currWeight = grid[i][j];
+        grid[i][j] = 0; 
+
+        return currWeight
+             + dfs(grid, i + 1, j)
+             + dfs(grid, i - 1, j)
+             + dfs(grid, i, j + 1)
+             + dfs(grid, i, j - 1);
+    }
+};
